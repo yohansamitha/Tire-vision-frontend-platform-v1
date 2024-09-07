@@ -1,0 +1,68 @@
+<div class="signup-container">
+  <div class="signup-box">
+    <div class="logo-container">
+      <img
+        src="../../../../../assets/icons/tire-vision-logo.svg"
+        alt="Tire Vision Logo"
+        class="logo"
+      />
+    </div>
+    <h2>Sign up to Tire-Vision</h2>
+    <form class="signup-form" [formGroup]="registrationForm">
+      <div class="name-field">
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          formControlName="firstName"
+          placeholder="First name"
+          required
+        />
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          formControlName="lastName"
+          placeholder="Last name"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <input
+          type="email"
+          id="email"
+          name="email"
+          formControlName="email"
+          placeholder="Email Address"
+          required
+        />
+      </div>
+      <div class="form-field">
+        <input
+          type="password"
+          id="password"
+          name="password"
+          formControlName="password"
+          placeholder="Password"
+          required
+        />
+      </div>
+      <button type="submit" class="signup-button" (click)="register()">
+        SIGN UP
+      </button>
+      <mat-progress-bar
+        *ngIf="registrationProgress"
+        mode="indeterminate"
+      ></mat-progress-bar>
+      <div class="signin-prompt">
+        Have an account?
+        <a routerLink="/auth/login" class="sign-in-link">Sign In</a>
+      </div>
+    </form>
+    <div class="legal-links">
+      <a href="#" class="terms">Terms and conditions</a> |
+      <a href="#" class="privacy">Privacy policy</a>
+    </div>
+  </div>
+  <div class="tire-track-background"></div>
+</div>

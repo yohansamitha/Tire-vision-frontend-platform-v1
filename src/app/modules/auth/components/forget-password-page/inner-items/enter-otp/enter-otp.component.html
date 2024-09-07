@@ -1,0 +1,27 @@
+<div class="otp-verification-container">
+  <h2>OTP Verification</h2>
+  <p>
+    Please enter the OTP (One-Time Password) sent to your registered email/phone
+    number to complete your verification.
+  </p>
+  <form [formGroup]="otpForm" class="otp-inputs">
+    <input type="text" formControlName="digit1" maxlength="1" appAutoTab />
+    <input type="text" formControlName="digit2" maxlength="1" appAutoTab />
+    <input type="text" formControlName="digit3" maxlength="1" appAutoTab />
+    <input type="text" formControlName="digit4" maxlength="1" appAutoTab />
+  </form>
+  <div *ngIf="showErrorMessage()" class="error-message">
+    Please ensure all digits are numbers and filled in.
+  </div>
+
+  <div class="timer">
+    Remaining time: <span id="time">{{ formattedTime }}</span>
+  </div>
+  <div class="actions">
+    <button class="resend" (click)="resendCode()">
+      Didn't get the code? Resend
+    </button>
+    <button class="verify" (click)="verifyOtp()">Verify</button>
+    <button class="cancel" (click)="cancelVerification()">Cancel</button>
+  </div>
+</div>

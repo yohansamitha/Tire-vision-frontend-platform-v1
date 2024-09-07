@@ -1,0 +1,127 @@
+.login-page {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100vh;
+  padding-left: 100px;
+  position: relative;
+  background-color: #fff;
+
+  .login-form-container {
+    z-index: 2;
+    width: calc(50% - 40px);
+    max-width: 400px;
+    padding-right: 40px;
+
+    .logo {
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      margin-bottom: 2rem;
+      color: #333;
+      font-size: 2rem;
+    }
+
+    .input-field {
+      margin-bottom: 1rem;
+
+      input {
+        width: 100%;
+        padding: 10px 15px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+    }
+
+    .forgot-password {
+      display: block;
+      margin-bottom: 1rem;
+      color: #ffa500;
+      text-decoration: none;
+    }
+
+    .sign-in-button {
+      width: 100%;
+      padding: 10px 0;
+      border: none;
+      border-radius: 4px;
+      background-color: #ffa500;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .signup-prompt {
+      margin-top: 1rem;
+      margin-bottom: 4rem;
+      font-size: 0.9rem;
+
+      .sign-up-link {
+        color: #ffa500;
+        text-decoration: none;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .legal-links {
+    position: absolute;
+    bottom: 20px;
+    right: 400px;
+    font-size: 0.8rem;
+
+    a {
+      color: #666;
+      text-decoration: none;
+      margin: 0 10px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .tire-track-container {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+
+    .tire-track {
+      height: 100%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .login-page {
+    flex-direction: column;
+    padding: 20px;
+    padding-left: 20px;
+
+    .login-form-container,
+    .tire-track-container {
+      width: 100%;
+      padding-right: 0;
+    }
+
+    .legal-links {
+      left: 20px;
+      right: 20px;
+      text-align: center;
+    }
+
+    .tire-track-container {
+      position: relative;
+      height: 200px;
+
+      .tire-track {
+        height: auto;
+        width: 100%;
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+<div class="login-page">
+  <div class="login-form-container">
+    <img
+      src="../../../../../assets/icons/tire-vision-logo.svg"
+      alt="Tire Vision Logo"
+      class="logo"
+    />
+    <h1>Sign in</h1>
+    <form [formGroup]="loginForm">
+      <div class="input-field">
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          placeholder="Email Address *"
+          required
+        />
+        @if (loginForm.controls['email'].touched &&
+        loginForm.controls['email']!.errors?.['email']) {
+        <mat-error class="mat-error-message"
+          >Please enter a valid email address</mat-error
+        >
+        } @if (loginForm.controls['email'].touched &&
+        loginForm.controls['email']!.errors?.['required']) {
+        <mat-error class="mat-error-message"
+          >Email is <strong>required</strong></mat-error
+        >
+        }
+      </div>
+      <div class="input-field">
+        <input
+          type="password"
+          id="password"
+          formControlName="password"
+          placeholder="Password *"
+          required
+        />
+
+        @if (loginForm.controls['password'].touched &&
+        loginForm.controls['password']!.errors?.['required']) {
+        <mat-error class="mat-error-message"
+          >Password is <strong>required</strong></mat-error
+        >}
+      </div>
+      <a routerLink="/auth/forget-password" class="forgot-password"
+        >Forgot your password?</a
+      >
+      <button
+        [disabled]="loginForm.invalid"
+        type="submit"
+        class="sign-in-button"
+        (click)="login()"
+      >
+        SIGN IN
+      </button>
+      <mat-progress-bar
+        *ngIf="loginProgress"
+        mode="indeterminate"
+      ></mat-progress-bar>
+      <div class="signup-prompt">
+        Don’t you have an account?
+        <a routerLink="/auth/registration" class="sign-up-link">Sign Up</a>
+      </div>
+    </form>
+    <div class="legal-links">
+      <a href="#" class="terms">Terms and conditions</a> •
+      <a href="#" class="privacy">Privacy policy</a>
+    </div>
+  </div>
+  <div class="tire-track-container">
+    <img
+      src="../../../../../assets/icons/verticle-tire.svg"
+      alt="Tire Track"
+      class="tire-track"
+    />
+  </div>
+</div>
