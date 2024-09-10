@@ -1,0 +1,26 @@
+<div>
+  <span>{{ position }} image</span>
+  <div
+    class="upload-box"
+    (drop)="onDrop($event)"
+    (dragover)="onDragOver($event)"
+    (click)="fileInputRearRight.click()"
+  >
+    <span *ngIf="!imageState">Drop {{ position }} image here, or Browse *</span>
+    <img *ngIf="imageState" [src]="imageState" alt="" class="preview-image" />
+    <button
+      *ngIf="imageState"
+      class="remove-image"
+      (click)="removeImage($event)"
+    >
+      X
+    </button>
+    <input
+      type="file"
+      #fileInputRearRight
+      (change)="onFileSelect($event)"
+      accept=".jpg, .jpeg, .png"
+      hidden
+    />
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="card-container" (click)="showVehicleDetails()">
+  <div class="image-container">
+    <img [src]="vehicle.image" alt="vehicle" />
+  </div>
+  <div class="text-container">
+    <p class="line1">{{ vehicle.brand }} {{ vehicle.model }}</p>
+    <p class="line2">{{ vehicle.brand }}</p>
+    <p class="line2">{{ vehicle.year }}</p>
+  </div>
+</div>

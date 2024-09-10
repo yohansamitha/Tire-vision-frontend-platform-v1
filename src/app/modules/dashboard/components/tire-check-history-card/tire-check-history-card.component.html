@@ -1,0 +1,17 @@
+<div class="card-container" (click)="showTireCheckDetails()">
+  <div class="image-container">
+    <img [src]="tirecheck.vehicleImage" alt="tire" />
+  </div>
+  <div class="text-container">
+    <p class="line1">
+      {{ tirecheck.vehicleBrand }} {{ tirecheck.vehicleModel }}
+    </p>
+    <p class="line2">
+      FL- {{ tirecheck.flResults | numberCategory }} 
+      FR- {{ tirecheck.frResults | numberCategory }} 
+      RL- {{ tirecheck.rlResults | numberCategory }} 
+      RR- {{ tirecheck.rrResults | numberCategory }}
+    </p>
+    <p class="line2">{{ tirecheck.checkDate }}</p>
+  </div>
+</div>

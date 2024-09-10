@@ -1,0 +1,100 @@
+<div class="tire-assessment-container">
+  <div class="tire-assessment-header">
+    <img
+      src="../../../../../assets/icons/tire-vision-logo.svg"
+      alt="Tire Vision Logo"
+      class="logo"
+    />
+    <h1>
+      Upload tire images and let our advanced Machine Learning <br />
+      and Image Processing unveil the true condition of your tire.
+    </h1>
+    <button class="close-button" (click)="goBack()">×</button>
+  </div>
+
+  @if (logedOrNot) {
+  <div class="select-vehicle">
+    <mat-form-field>
+      <mat-label>Select Your Vehicle</mat-label>
+      <mat-select [formControl]="selectVehicle">
+        <mat-option
+          *ngFor="let vehicle of vehicleList"
+          [value]="vehicle.vehicleId"
+        >
+          {{ vehicle.vehicleName }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  }
+
+  <div class="tire-size-and-upload-container">
+    <div class="upload-section">
+      <image-upload-box
+        [(imageState)]="frontLeftImage"
+        [position]="'Front-Left'"
+      />
+      <image-upload-box
+        [(imageState)]="frontRightImage"
+        [position]="'Front-Right'"
+      />
+      <image-upload-box
+        [(imageState)]="rearLeftImage"
+        [position]="'Rear-Left'"
+      />
+      <image-upload-box
+        [(imageState)]="rearRightImage"
+        [position]="'Rear-Right'"
+      />
+    </div>
+    <div class="results-section-container">
+      <div class="results-section">
+        <div class="tire-result">
+          <p>Front left</p>
+          <img [src]="frontLeftResultsIcon" alt="Front-left tire" />
+          @if (resultsState) {
+          <span class="condition">{{ frontLeftResults }}</span>
+          }
+        </div>
+        <div class="tire-result">
+          <p>Front right</p>
+          <img [src]="frontRightResultsIcon" alt="Front-right tire" />
+          @if (resultsState) {
+          <span class="condition">{{ frontRightResults }}</span>
+          }
+        </div>
+        <div class="tire-result">
+          <p>Rear left</p>
+          <img [src]="rearLeftResultsIcon" alt="Rear-left tire" />
+          @if (resultsState) {
+          <span class="condition">{{ rearLeftResults }}</span>
+          }
+        </div>
+        <div class="tire-result">
+          <p>Rear right</p>
+          <img [src]="rearRightResultsIcon" alt="Rear-right tire" />
+          @if (resultsState) {
+          <span class="condition">{{ rearRightResults }}</span>
+          }
+        </div>
+      </div>
+      <button
+        class="check-again-button"
+        (click)="checkTire()"
+        [disabled]="selectVehicle.invalid"
+      >
+        Check again
+      </button>
+    </div>
+  </div>
+  @if (logedOrNot && resultsState) {
+  <div class="conclusion-recommendations-container">
+    <div class="recommendations">
+      <h2>Recommendations</h2>
+      <p>
+        {{ recommendation }}
+      </p>
+    </div>
+  </div>
+  }
+</div>

@@ -1,0 +1,26 @@
+<div class="dashboard">
+  <div class="header">
+    <img
+      src="../../../assets/icons/dashboard-logo.svg"
+      alt="Tire vision"
+      class="logo"
+    />
+
+    <div>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>User Account</button>
+        <button mat-menu-item (click)="signOut()">Sign Out</button>
+      </mat-menu>
+
+      <button class="avatar-button" mat-icon-button [matMenuTriggerFor]="menu">
+        <ng-container *ngIf="isAvatarAvailable(); else initialsBlock">
+          <img src="{{ userAvatar }}" class="avatar-img" alt="User Avatar" />
+        </ng-container>
+        <ng-template #initialsBlock>
+          <div class="avatar-circle">{{ getUserInitials() }}</div>
+        </ng-template>
+      </button>
+    </div>
+  </div>
+</div>
+<router-outlet />
