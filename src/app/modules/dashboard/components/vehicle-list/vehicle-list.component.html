@@ -1,0 +1,43 @@
+<!-- app.component.html -->
+<div class="header">
+  <button mat-button (click)="navigate()">
+    <mat-icon>arrow_back_ios</mat-icon>Go Back
+  </button>
+</div>
+<div class="vehicles-header-left">
+  <h2>Registered Vehicles</h2>
+  <button class="sign-in-button" (click)="vehicleModelPanel.openPanel()">
+    Add New &nbsp; <mat-icon>add</mat-icon>
+  </button>
+  <add-vehicle-model #addVehicleModelPanel></add-vehicle-model>
+</div>
+
+<div class="cards-container">
+  <div
+    *ngFor="
+      let vehicle of vehicles
+        | slice : pageIndex * pageSize : (pageIndex + 1) * pageSize;
+      let i = index
+    "
+    class="vehicle-card"
+  >
+    <registered-vehicle-card [vehicle]="vehicle"></registered-vehicle-card>
+  </div>
+</div>
+
+<div class="pagination">
+  <mat-paginator
+    #paginator
+    class="demo-paginator"
+    (page)="handlePageEvent($event)"
+    [length]="length"
+    [pageSize]="pageSize"
+    [disabled]="false"
+    [showFirstLastButtons]="true"
+    [pageSizeOptions]="true ? pageSizeOptions : []"
+    [hidePageSize]="false"
+    [pageIndex]="pageIndex"
+    aria-label="Select page"
+  >
+  </mat-paginator>
+</div>

@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { VehicleTableDTO } from '../../../../dtos/VehicleTableDTO';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { VehicleDetailsModelComponent } from '../models/vehicle-details-model/vehicle-details-model.component';
 
 @Component({
   selector: 'registered-vehicle-card',
@@ -14,5 +15,11 @@ export class RegisteredVehicleCardComponent {
 
   constructor(public dialog: MatDialog) {}
 
-  showVehicleDetails() {}
+  showVehicleDetails() {
+    this.dialog.open(VehicleDetailsModelComponent, {
+      data: {
+        vehicle: this.vehicle,
+      },
+    });
+  }
 }

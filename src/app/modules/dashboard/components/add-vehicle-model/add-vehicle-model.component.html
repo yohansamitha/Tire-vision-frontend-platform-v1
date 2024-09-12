@@ -1,0 +1,107 @@
+<div class="sliding-panel-container" [ngClass]="{ open: isOpen }">
+  <div class="close-button">
+    <button (click)="closePanel()" class="remove-image">X</button>
+  </div>
+  <div class="sliding-panel-content">
+    <div class="user-profile">
+      <form class="user-form" [formGroup]="addVehicleForm">
+        <div
+          class="upload-box"
+          (drop)="onDrop($event)"
+          (dragover)="onDragOver($event)"
+          (click)="fileInputRearRight.click()"
+        >
+          <span *ngIf="!imageState"
+            >Drop Rear-right image here, or Browse *</span
+          >
+          <img
+            *ngIf="imageState"
+            [src]="imageState"
+            alt="Vehicle Preview"
+            class="preview-image"
+          />
+          <button
+            *ngIf="imageState"
+            class="remove-image"
+            (click)="removeImage($event)"
+          >
+            X
+          </button>
+          <input
+            type="file"
+            #fileInputRearRight
+            (change)="onFileSelect($event)"
+            accept=".jpg, .jpeg, .png"
+            hidden
+          />
+        </div>
+        <mat-form-field class="example-full-width">
+          <mat-label>Brand</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="brand"
+            [errorStateMatcher]="matcher"
+            class="form-control"
+          />
+
+          @if (addVehicleForm.controls['brand'].touched &&
+          addVehicleForm.controls['brand']!.errors?.['required']) {
+          <mat-error>Brand is <strong>required</strong></mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Vehicle Modal</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="vehicleModal"
+            [errorStateMatcher]="matcher"
+            class="form-control"
+          />
+
+          @if (addVehicleForm.controls['vehicleModal'].touched &&
+          addVehicleForm.controls['vehicleModal']!.errors?.['required']) {
+          <mat-error>Vehicle Modal is <strong>required</strong></mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Year</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="year"
+            [errorStateMatcher]="matcher"
+            class="form-control"
+          />
+
+          @if (addVehicleForm.controls['year'].touched &&
+          addVehicleForm.controls['year']!.errors?.['required']) {
+          <mat-error>Year is <strong>required</strong></mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Registration Number</mat-label>
+          <input
+            type="email"
+            matInput
+            formControlName="registrationNumber"
+            [errorStateMatcher]="matcher"
+            class="form-control"
+          />
+
+          @if (addVehicleForm.controls['registrationNumber'].touched &&
+          addVehicleForm.controls['registrationNumber']!.errors?.['required']){
+          <mat-error
+            >Registration Number is <strong>required</strong></mat-error
+          >
+          }
+        </mat-form-field>
+        <button (click)="registerVehicle()" class="update-button">
+          Add
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="overlay" *ngIf="isOpen" (click)="closePanel()"></div>

@@ -8,9 +8,12 @@
 
     <div>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item>User Account</button>
+        <button mat-menu-item (click)="updateUserProfilePanel.openPanel()">
+          User Account
+        </button>
         <button mat-menu-item (click)="signOut()">Sign Out</button>
       </mat-menu>
+      <update-user-profile #updateUserProfilePanel></update-user-profile>
 
       <button class="avatar-button" mat-icon-button [matMenuTriggerFor]="menu">
         <ng-container *ngIf="isAvatarAvailable(); else initialsBlock">

@@ -10,6 +10,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { RegisteredVehicleCardComponent } from './components/registered-vehicle-card/registered-vehicle-card.component';
 import { TireCheckHistoryCardComponent } from './components/tire-check-history-card/tire-check-history-card.component';
 import { HomeComponent } from './components/home/home.component';
+import { AddVehicleModelComponent } from './components/add-vehicle-model/add-vehicle-model.component';
+import { UpdateUserProfileComponent } from './components/update-user-profile/update-user-profile.component';
 
 @NgModule({
   declarations: [DashboardComponent],
@@ -23,6 +25,8 @@ import { HomeComponent } from './components/home/home.component';
     RegisteredVehicleCardComponent,
     TireCheckHistoryCardComponent,
     HomeComponent,
+    AddVehicleModelComponent,
+    UpdateUserProfileComponent,
   ],
 })
 export class DashboardModule {}

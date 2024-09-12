@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { TireCheckUpTableDTO } from '../../../../dtos/TireCheckUpTableDTO';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { NumberCategoryPipe } from '../../../../pipe/NumberCategoryPipe ';
+import { TireCheckHistoryDetailsModelComponent } from '../models/tire-check-history-details-model/tire-check-history-details-model.component';
 
 @Component({
   selector: 'tire-check-history-card',
@@ -15,5 +16,11 @@ export class TireCheckHistoryCardComponent {
 
   constructor(public dialog: MatDialog) {}
 
-  showTireCheckDetails() {}
+  showTireCheckDetails() {
+    this.dialog.open(TireCheckHistoryDetailsModelComponent, {
+      data: {
+        tirecheck: this.tirecheck,
+      },
+    });
+  }
 }

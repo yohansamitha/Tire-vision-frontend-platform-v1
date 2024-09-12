@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { getLiveUserData } from '../../utils/CommonoFunctions';
+import { UpdateUserProfileComponent } from './components/update-user-profile/update-user-profile.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,6 +9,8 @@ import { getLiveUserData } from '../../utils/CommonoFunctions';
   styleUrl: './dashboard.component.scss',
 })
 export class DashboardComponent implements OnInit {
+  @ViewChild('updateUserProfilePanel')
+  updateUserProfilePanel!: UpdateUserProfileComponent;
 
   userName = localStorage.getItem('userName')!;
   userAvatar: string | null = '';

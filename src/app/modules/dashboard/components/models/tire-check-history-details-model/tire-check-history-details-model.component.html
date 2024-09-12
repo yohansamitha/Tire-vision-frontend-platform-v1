@@ -1,0 +1,46 @@
+<mat-dialog-content>
+  <div class="top-container">
+    <div class="conclusion-recommendations-container">
+      <div class="recommendations">
+        <h2>Recommendations</h2>
+        <p>{{ data.tirecheck.recommendation }}</p>
+      </div>
+    </div>
+
+    <mat-divider class="divider" [vertical]="true"></mat-divider>
+
+    <div class="right-side">
+      <div class="results-section-container">
+        <p class="last-checked-date">
+          Last Checked : {{ data.tirecheck.checkDate }}
+        </p>
+        <div class="results-section">
+          <div class="tire-result">
+            <p>Front left</p>
+            <img [src]="frontLeftResultsIcon" alt="Front-left tire" />
+            <span class="condition">{{ frontLeftResults }}</span>
+          </div>
+          <div class="tire-result">
+            <p>Front right</p>
+            <img [src]="frontRightResultsIcon" alt="Front-right tire" />
+            <span class="condition">{{ frontRightResults }}</span>
+          </div>
+          <div class="tire-result">
+            <p>Rear left</p>
+            <img [src]="rearLeftResultsIcon" alt="Rear-left tire" />
+            <span class="condition">{{ rearLeftResults }}</span>
+          </div>
+          <div class="tire-result">
+            <p>Rear right</p>
+            <img [src]="rearRightResultsIcon" alt="Rear-right tire" />
+            <span class="condition">{{ rearRightResults }}</span>
+          </div>
+        </div>
+        <button class="check-again-button" (click)="checkAgainNavigate()">
+          Check again
+        </button>
+      </div>
+    </div>
+  </div>
+  <button (click)="openMap()" class="map-button">View Near-by Tire Shop</button>
+</mat-dialog-content>

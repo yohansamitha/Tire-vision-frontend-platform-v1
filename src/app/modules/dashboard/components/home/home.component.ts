@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
@@ -14,6 +14,7 @@ import { VehicleService } from '../../../../services/vehicle.service';
 import { getLiveUserData } from '../../../../utils/CommonoFunctions';
 import { RegisteredVehicleCardComponent } from '../registered-vehicle-card/registered-vehicle-card.component';
 import { TireCheckHistoryCardComponent } from '../tire-check-history-card/tire-check-history-card.component';
+import { AddVehicleModelComponent } from '../add-vehicle-model/add-vehicle-model.component';
 
 @Component({
   selector: 'app-home',
@@ -25,11 +26,14 @@ import { TireCheckHistoryCardComponent } from '../tire-check-history-card/tire-c
     MatDividerModule,
     RegisteredVehicleCardComponent,
     TireCheckHistoryCardComponent,
+    AddVehicleModelComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
+  @ViewChild('addVehicleModelPanel')
+  vehicleModelPanel!: AddVehicleModelComponent;
 
   userName = localStorage.getItem('userName')!;
 
@@ -53,10 +57,10 @@ export class HomeComponent implements OnInit {
   navigate(route: string) {
     switch (route) {
       case 'vehicle':
-        this.route.navigate(['dashboard/home/home']);
+        this.route.navigate(['dashboard/home/vehicle-list']);
         break;
       case 'tireChecks':
-        this.route.navigate(['dashboard/home/home']);
+        this.route.navigate(['dashboard/home/tire-checkups-history-list']);
         break;
       case 'newChecks':
         this.route.navigate(['dashboard/home/tire-checkup']);

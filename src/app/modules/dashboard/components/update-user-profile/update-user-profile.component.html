@@ -1,0 +1,47 @@
+<div class="sliding-panel-container" [ngClass]="{ open: isOpen }">
+  <div class="close-button">
+    <button (click)="closePanel()" class="remove-image">X</button>
+  </div>
+  <div class="sliding-panel-content">
+    <div class="user-profile">
+      <div class="profile-header">
+        <div class="user-info">
+          <h3>{{ userName }}</h3>
+          <p>{{ userEmail }}</p>
+        </div>
+      </div>
+      <form class="user-form" [formGroup]="updateUserProfileForm">
+        <mat-form-field class="example-full-width">
+          <mat-label>First Name</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="firstName"
+            class="form-control"
+          />
+          @if (updateUserProfileForm.controls['firstName'].touched &&
+          updateUserProfileForm.controls['firstName']!.errors?.['required']) {
+          <mat-error>First Name is <strong>required</strong></mat-error>
+          }
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+          <mat-label>Last Name</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="lastName"
+            class="form-control"
+          />
+          @if (updateUserProfileForm.controls['lastName'].touched &&
+          updateUserProfileForm.controls['lastName']!.errors?.['required']) {
+          <mat-error>Last Name is <strong>required</strong></mat-error>
+          }
+        </mat-form-field>
+        <button (click)="updateUserDetails()" class="update-button">
+          Update
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+<div class="overlay" *ngIf="isOpen" (click)="closePanel()"></div>

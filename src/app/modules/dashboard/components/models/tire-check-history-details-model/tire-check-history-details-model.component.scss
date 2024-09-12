@@ -1,0 +1,118 @@
+.top-container {
+  display: flex;
+
+  .conclusion-recommendations-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: space-between;
+    margin-top: 1em;
+
+    .conclusion,
+    .recommendations {
+      flex: 1; // Each box will take equal space
+      margin: 0 0.5em; // Adds some space between the boxes
+      padding: 1em;
+      background-color: #f9f9f9;
+      border-radius: 4px;
+      width: 350px;
+
+      h2 {
+        margin-bottom: 0.5em;
+        font-size: 20px;
+      }
+
+      p {
+        font-size: 16px;
+        color: #666;
+      }
+    }
+  }
+
+  .divider {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  .right-side {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 16px;
+    gap: 16px;
+
+    .results-section-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 16px;
+
+      .last-checked-date {
+        color: black;
+        margin-bottom: 8px;
+      }
+
+      .results-section {
+        display: flex;
+        align-items: center;
+        border: 1px solid rgba(123, 160, 212, 0.5);
+
+        .tire-result {
+          margin: 8px;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          margin-bottom: 0.5em;
+          p {
+            font-size: 14px;
+            font-weight: 500;
+            line-height: 19.07px;
+            text-align: center;
+          }
+          img {
+            width: 80px; // Adjust based on your images
+            height: auto;
+          }
+
+          .condition {
+            font-weight: bold;
+            background: #e7e7e7;
+            border-radius: 4px;
+            padding: 2px 8px;
+          }
+        }
+      }
+
+      .check-again-button {
+        padding: 10px 20px;
+        background-color: #ffa500;
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        font-weight: bold;
+        margin: 20px 0;
+        width: 100%;
+        align-self: center;
+      }
+    }
+  }
+}
+
+.map-button {
+  padding: 10px 10px;
+  margin-left: 8px;
+  margin-top: 8px;
+  background-color: transparent;
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #ffa600e3;
+  }
+}

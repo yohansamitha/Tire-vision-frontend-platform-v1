@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
 import { HomeComponent } from './components/home/home.component';
 import { TireCheckComponent } from '../../components/tire-check/tire-check.component';
+import { VehicleListComponent } from './components/vehicle-list/vehicle-list.component';
+import { TireCheckupsHistoryListComponent } from './components/tire-checkups-history-list/tire-checkups-history-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard/home', pathMatch: 'full' },
@@ -15,6 +17,11 @@ const routes: Routes = [
       {
         path: 'tire-checkup',
         component: TireCheckComponent,
+      },
+      { path: 'vehicle-list', component: VehicleListComponent },
+      {
+        path: 'tire-checkups-history-list',
+        component: TireCheckupsHistoryListComponent,
       },
     ],
   },

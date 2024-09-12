@@ -3,6 +3,7 @@ import { environment } from '../../environments/environment';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { getLiveUserData } from '../utils/CommonoFunctions';
+import { VehicleDTO } from '../dtos/VehicleDTO';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,10 @@ export class VehicleService {
   private _baseURL = environment.baseUrl;
 
   constructor(private http: HttpClient) {}
+
+  public registerNewVehicle(dto: VehicleDTO): Observable<any> {
+    return this.http.post(this._baseURL + '/v1/vehicle/insert', dto);
+  }
 
   public getDashboardVehicleList(): Observable<any> {
     const userId = getLiveUserData().userId;
