@@ -16,6 +16,7 @@ import { StandardResponse } from '../../../../../dtos/StandardResponse';
 import { TireCheckUpTableDTO } from '../../../../../dtos/TireCheckUpTableDTO';
 import { TireCheckUpsService } from '../../../../../services/tire-check-ups.service';
 import { resultConverter } from '../../../../../utils/CommonoFunctions';
+import { NearByTireShopsComponent } from '../../../../../components/near-by-tire-shops/near-by-tire-shops.component';
 
 @Component({
   selector: 'app-vehicle-details-model',
@@ -137,5 +138,7 @@ export class VehicleDetailsModelComponent implements OnInit {
     }
   }
 
-  openMap() {}
+  openMap() {
+    this.dialog.open(NearByTireShopsComponent);
+  }
 }

@@ -12,6 +12,7 @@ import {
 import { MatDividerModule } from '@angular/material/divider';
 import { Router, RouterLink } from '@angular/router';
 import { resultConverter } from '../../../../../utils/CommonoFunctions';
+import { NearByTireShopsComponent } from '../../../../../components/near-by-tire-shops/near-by-tire-shops.component';
 
 @Component({
   selector: 'app-tire-check-history-details-model',
@@ -109,5 +110,7 @@ export class TireCheckHistoryDetailsModelComponent implements OnInit {
     this.router.navigate(['/dashboard/home/tire-checkup']);
   }
 
-  openMap() {}
+  openMap() {
+    this.dialog.open(NearByTireShopsComponent);
+  }
 }

@@ -1,0 +1,11 @@
+<mat-dialog-content>
+  <google-map
+    [center]="center"
+    [zoom]="zoom"
+    [options]="mapOptions"
+    [height]="'500'"
+    [width]="'500'"
+  >
+    <map-marker [position]="center"></map-marker>
+  </google-map>
+</mat-dialog-content>

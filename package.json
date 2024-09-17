@@ -24,7 +24,8 @@
     "rxjs": "~7.8.0",
     "sweetalert2": "^11.10.8",
     "tslib": "^2.3.0",
-    "zone.js": "~0.14.3"
+    "zone.js": "~0.14.3",
+    "@angular/google-maps": "^17.3.7"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.2.1",
